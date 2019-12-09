@@ -1,0 +1,21 @@
+<%= form_for @release, url: releases_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :version %><br>
+    <%= form.text_field :version %>
+  </p>
+  <p>
+    <%= form.label :code %><br>
+    <%= form.text_area :code %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <p>
+    <%= link_to 'Voltar', releases_path %>
+  </p>
+
+<% end %>

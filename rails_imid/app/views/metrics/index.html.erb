@@ -1,0 +1,29 @@
+<h1>Listando medidas dos sensores</h1>
+
+<div class="table-title">
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th>Sensor</th>
+        <th>Valor</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @metrics.each do |metric| %>
+        <tr>
+          <td><%= metric.sensor %></td>
+          <td><%= metric.value %></td>
+          <td><%= metric.created_at %></td>
+          <td><%= link_to 'Excluir', metric_path(metric),
+              method: :delete,
+              data: { confirm: 'Tem certeza que deseja excluir essa medida?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="links">
+    <%= link_to 'Versões', releases_path %>
+  </div>
+<div>

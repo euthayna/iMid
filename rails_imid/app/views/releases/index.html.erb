@@ -1,0 +1,33 @@
+<h1>Listando Versões</h1>
+<div class="table-title">
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Versão</th>
+        <th>Código</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @releases.each do |release| %>
+        <tr>
+          <td><%= release.name %></td>
+          <td><%= release.version %></td>
+          <td><%= release.code %></td>
+          <td><%= link_to 'Show', release_path(release) %></td>
+          <td><%= link_to 'Destroy', release_path(release),
+              method: :delete,
+              data: { confirm: 'Tem certeza que deseja excluir essa versão?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="links">
+    <%= link_to 'Metricas', metrics_path %>
+  </div>
+  <div class="links">
+    <%= link_to 'Novo', new_release_path %>
+  </div>
+</div>
